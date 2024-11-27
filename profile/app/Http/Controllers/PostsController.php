@@ -54,24 +54,33 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(posts $posts)
+    public function edit(posts $post)
     {
-        return view('posts.edit', compact('posts'));
+        return view('posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, posts $posts)
+    public function update(Request $request, posts $post)
     {
-        //
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(posts $posts)
+    public function destroy($id)
     {
-        //
+        //als er geen id wordt gevonden wordt er een error gegeven
+        $post = posts::findorfail($id);
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }

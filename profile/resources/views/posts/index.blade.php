@@ -37,7 +37,13 @@
         <p>{{$post->title}}</p>
         <p>{{$post->content}}</p>
         <p>{{$post->user_id}}</p>
+            <a href="/{{ $post->id }}/edit">Edit</a>
         </div>
+        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
     @endforeach
 </div>
 </body>
