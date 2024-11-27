@@ -1,0 +1,39 @@
+body {
+    font-family: "PostGrotesk", helvetica, sans-serif;
+    background-color: #f4f0aa;
+    color: black;
+    margin: 0px;
+}
+h1 {text-align: center; margin-bottom: 4px;}
+.main {
+    background-color: white;
+    height: 800px;
+    width: 500px;
+    display: block;
+    margin: auto auto;
+}
+
+.content {
+    background-color: white;
+    height: 600px;
+    width: 455px;
+    margin-right: 22px;
+    margin-left: 22px;
+}
+.contentBack {
+    background-color: white;
+    height: 710px;
+    width: 455px;
+    margin-right: 22px;
+    margin-left: 22px;
+}
+
+.br {
+    height: 50px;
+}
+
+header {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-evenly;
+}
