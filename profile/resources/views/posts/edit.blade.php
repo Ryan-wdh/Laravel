@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
     <div class="container h-100 w-1/2 mt-5 bg-gray-500">
         <div class="row h-100 justify-content-center align-items-center">
             <div class="col-20 col-md-8 col-lg-6">
@@ -21,4 +20,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>
