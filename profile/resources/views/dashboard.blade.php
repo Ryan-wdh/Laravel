@@ -12,7 +12,7 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <div class="p-6 text-gray-900">
-                    <a href="ttg">TTG pagina</a>
+                    <p>Here are your currently booked trips:</p>
                 </div>
             </div>
         </div>
