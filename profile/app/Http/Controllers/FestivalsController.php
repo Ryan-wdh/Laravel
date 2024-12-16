@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\posts;
+use App\Models\festivals;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class PostsController extends Controller
+class FestivalsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,23 +14,23 @@ class PostsController extends Controller
     public function index()
     {
         //
-        $posts = posts::orderBy('id', 'desc')->get();
-        return view('posts.index', compact('posts'));
+        $festivals = festivals::orderBy('id', 'desc')->get();
+        return view('festivals.index', compact('festivals'));
     }
 
     public function more($id)
     {
 
-        $post = posts::findOrFail($id);
-        return view('posts.more', compact('post'));
+        $festivals = festivals::findOrFail($id);
+        return view('festivals.more', compact('festivals'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(posts $posts)
+    public function create(festivals $festivals)
     {
-        return view('posts.create', compact('posts'));
+        return view('festivals.create', compact('festivals'));
     }
 
     /**
@@ -46,14 +46,14 @@ class PostsController extends Controller
 
         $validated['user_id'] = Auth::id();
 
-        posts::create($validated);
+        festivals::create($validated);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('festivals.index');
     }
     /**
      * Display the specified resource.
      */
-    public function show(posts $posts)
+    public function show(festivals $festivals)
     {
         //
     }
@@ -61,24 +61,22 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(posts $post)
+    public function edit(festivals $festival)
     {
-        return view('posts.edit', compact('post'));
+        return view('festivals.edit', compact('festival'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, posts $post)
+    public function update(Request $request, festivals $festival)
     {
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->save();
+        $festival->title = $request->title;
+        $festival->content = $request->content;
+        $festival->save();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('festivals.index');
     }
-
-
 
     /**
      * Remove the specified resource from storage.
@@ -86,8 +84,8 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //als er geen id wordt gevonden wordt er een error gegeven
-        $post = posts::findorfail($id);
-        $post->delete();
-        return redirect()->route('posts.index');
+        $festival = festivals::findorfail($id);
+        $festival->delete();
+        return redirect()->route('festivals.index');
     }
 }

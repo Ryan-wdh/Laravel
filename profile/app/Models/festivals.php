@@ -4,13 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class users extends Model
+class festivals extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
         'title',
-        'email',
+        'content',
+        'user_id',
     ];
+    public function festivals()
+    {
+        return $this->belongsTo(festivals::class);
+    }
 }

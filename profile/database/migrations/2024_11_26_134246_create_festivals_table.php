@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ttgs', function (Blueprint $table) {
-            $table->id();
+        Schema::create('festivals', function (Blueprint $table) {
+            $table->id(); // Primary key
             $table->string('title');
-            $table->integer('nop');
-            $table->string('description');
-            $table->timestamps();
+            $table->text('content');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps(); // created_at and updated_at columns
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ttgs');
+        Schema::dropIfExists('festivals');
     }
 };
