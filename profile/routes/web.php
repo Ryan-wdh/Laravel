@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TtgController;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\FestivalController;
-use App\Http\Controllers\BusController;
-use App\Models\User;
+use App\Models\users;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+route::resource('ttg', TTGController::class)
+
+    ->middleware(['auth', 'verified']);
 
 route::resource('users', UsersController::class)
 
