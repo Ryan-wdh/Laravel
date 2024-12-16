@@ -78,8 +78,6 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 
-
-
     /**
      * Remove the specified resource from storage.
      */
