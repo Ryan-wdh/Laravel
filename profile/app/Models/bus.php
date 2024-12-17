@@ -15,13 +15,14 @@ class bus extends Model
         'arrives_at',
         'ticket_price',
     ];
+
     public function festivals()
     {
-        return $this->belongsTo(festivals::class);
+        return $this->belongsTo(festivals::class, 'festival_id');
     }
 
-//    public function festival()
-//    {
-//        return $this->belongsTo(festival::class);
-//    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

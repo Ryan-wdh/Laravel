@@ -15,9 +15,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/festivals/more', function () {
-    return view('festivals.more');
-})->middleware(['auth', 'verified'])->name('festivals.more');
+Route::get('/festivals/show', function () {
+    return view('festivals.show');
+})->middleware(['auth', 'verified'])->name('festivals.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,9 +40,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{festival}/edit', [festivalsController::class, 'edit'])->name('festivals.edit');
     Route::put('/{festival}/update', [festivalsController::class, 'update'])->name('festivals.update');
     Route::delete('/festivals/{id}', [festivalsController::class, 'destroy'])->name('festivals.destroy');
-    Route::get('/festivals/more', [festivalsController::class, 'more'])->name('festivals.more');
-    Route::get('/{festival}/more', [festivalsController::class, 'more'])->name('festivals.more');
-    Route::get('/festivals/more/{id}', [festivalsController::class, 'more'])->name('festivals.more');
+    Route::get('/festivals/show', [festivalsController::class, 'show'])->name('festivals.show');
+    Route::get('/{festival}/show', [festivalsController::class, 'show'])->name('festivals.show');
+    Route::get('/festivals/show/{id}', [festivalsController::class, 'show'])->name('festivals.show');
 });
 
 

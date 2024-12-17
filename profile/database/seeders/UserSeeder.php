@@ -16,6 +16,6 @@ class UserSeeder extends Seeder
                 'user_id' => $user->id,
             ]);
         });
-        Bus::factory()->count(50)->create();
+        Bus::factory()->count(100)->create();
     }
 }

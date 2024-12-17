@@ -16,7 +16,7 @@
         <p>{{$festival->title}}</p>
         <p>{{$festival->content}}</p>
         <p>{{$festival->user_id}}</p>
-            <a href="/{{ $festival->id }}/more">Get more information</a>
+            <a href="/{{ $festival->id }}/show">Get more information</a>
             <a href="/{{ $festival->id }}/edit">Edit</a>
             <form action="{{ route('festivals.destroy', $festival->id) }}" method="POST">
                 @csrf
