@@ -10,8 +10,8 @@ class bus extends Model
     /** @use HasFactory<\Database\Factories\BusFactory> */
     use HasFactory;
 
-    public function festival()
-    {
-        return $this->belongsTo(festival::class);
-    }
+//    public function festival()
+//    {
+//        return $this->belongsTo(festival::class);
+//    }
 }

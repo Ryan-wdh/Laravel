@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\bus;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,13 +17,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Ryan',
-            'email' => 's1216264@student.windesheim.nl',
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('bjozshawtxsx431915'),
-            'remember_token' => Str::random(10),
-        ]);
-    }
+        Bus::factory()->count(50)->create();
+//        User::factory()->create([
+//            'name' => 'Ryan',
+//            'email' => 's1216264@student.windesheim.nl',
+//            'email_verified_at' => now(),
+//            'password' => static::$password ??= Hash::make('bjozshawtxsx431915'),
+//            'remember_token' => Str::random(10),
+//        ]);
+ }
 }

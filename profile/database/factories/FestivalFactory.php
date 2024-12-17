@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class FestivalFactory extends Factory
 {
-    protected $model = \App\Models\Festival::class; // Model ophalen
+    protected $model = \App\Models\Festivals::class; // Model ophalen
 
     public function definition()
     {

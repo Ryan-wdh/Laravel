@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\festival;
+use App\Models\bus;
+use App\Models\festivals;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
 
@@ -20,7 +21,7 @@ class BusFactory extends Factory
             'leaves_at' => $leavesAt,
             'arrives_at' => $arrivesAt,
             'ticket_price' => $ticket_price,
-            'festival_id' => festival::inRandomOrder()->first()->id ?? null,
+            'festival_id' => festivals::inRandomOrder()->first()->id ?? null,
         ];
     }
 }
