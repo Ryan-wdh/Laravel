@@ -53,9 +53,16 @@ class FestivalsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(festivals $festivals)
+    public function show($id)
     {
-        //
+        // Haal het specifieke festival en de bussen op die eraan gekoppeld zijn
+        $festival = festivals::with('buses')->findOrFail($id);
+
+        // Geef het festival en de bussen door aan de view
+        return view('festivals.show', [
+            'festival' => $festival,
+            'buses' => $festival->buses, // Hier geef je de bussen door
+        ]);
     }
 
     /**

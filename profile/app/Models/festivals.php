@@ -14,8 +14,13 @@ class festivals extends Model
         'content',
         'user_id',
     ];
-    public function festivals()
+    public function bus()
     {
-        return $this->belongsTo(festivals::class);
+        return $this->hasMany(bus::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

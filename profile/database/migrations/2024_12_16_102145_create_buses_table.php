@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('leaves_at');
             $table->string('arrives_at');
             $table->integer('ticket_price');
-            $table->unsignedBigInteger('festival_id');
+            $table->unsignedBigInteger('festivals_id');
             $table->timestamps();
 
-            $table->foreign('festival_id')->references('id')->on('festivals')->onDelete('cascade');
+            $table->foreign('festivals_id')->references('id')->on('festivals')->onDelete('cascade');
         });
         Schema::enableForeignKeyConstraints();
     }

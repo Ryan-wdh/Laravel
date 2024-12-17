@@ -45,7 +45,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function profile()
+    public function festivals()
     {
         return $this->hasMany(festivals::class);
     }

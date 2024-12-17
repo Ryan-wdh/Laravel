@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\festivalsController;
+use App\Http\Controllers\FestivalsController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\BusController;
 use App\Http\Controllers\UsersController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -44,5 +44,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{festival}/more', [festivalsController::class, 'more'])->name('festivals.more');
     Route::get('/festivals/more/{id}', [festivalsController::class, 'more'])->name('festivals.more');
 });
+
 
 require __DIR__.'/auth.php';

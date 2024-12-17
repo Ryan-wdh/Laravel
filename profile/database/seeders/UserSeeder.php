@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\bus;
 use App\Models\festivals; // Use the correct festivals model
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -15,5 +16,6 @@ class UserSeeder extends Seeder
                 'user_id' => $user->id,
             ]);
         });
+        Bus::factory()->count(50)->create();
     }
 }
