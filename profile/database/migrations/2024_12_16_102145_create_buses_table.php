@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('festivals_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('festivals_id')->references('id')->on('festivals')->onDelete('cascade');
         });
         Schema::enableForeignKeyConstraints();
