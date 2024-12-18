@@ -13,8 +13,12 @@ class FestivalsController extends Controller
      */
     public function index()
     {
-        //
-        $festivals = festivals::orderBy('id', 'desc')->get();
+        $festivals = Festivals::all();
+
+        if (request()->has('search')) {
+            $search = request()->get('search');
+            $festivals = festivals::where('title', 'like', '%' . $search . '%')->get();
+        }
         return view('festivals.index', compact('festivals'));
     }
 

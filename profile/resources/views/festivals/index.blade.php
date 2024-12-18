@@ -10,6 +10,10 @@
             <button class="bg-white p-1 text-center border border-gray-900 rounded" type="submit">Add</button>
         </form>
     </div>
+    <form method="GET" action="{{route('festivals.index')}}">
+        <input name="search" placeholder="...">
+        <x-primary-button>Search</x-primary-button>
+    </form>
 <div class="mt-5 mx-auto w-3/4 grid grid-cols-3 gap-5">
     @foreach($festivals as $festival)
         <div class="w-auto bg-amber-50 p-4 text-center border border-dashed border-gray-900 rounded">
