@@ -18,7 +18,7 @@
         <p>{{$festival->user_id}}</p>
             <a href="/{{ $festival->id }}/show">Get more information</a>
             <a href="/{{ $festival->id }}/edit">Edit</a>
-            <form action="{{ route('festivals.destroy', $festival->id) }}" method="POST">
+            <form method="POST" action="{{ route('festivals.destroy', $festival->id) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>

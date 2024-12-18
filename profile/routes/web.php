@@ -15,9 +15,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/festivals/show', function () {
-    return view('festivals.show');
-})->middleware(['auth', 'verified'])->name('festivals.show');
+//Route::get('/festivals/show', function () {
+//    return view('festivals.show');
+//})->middleware(['auth', 'verified'])->name('festivals.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,7 +43,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/festivals/show', [festivalsController::class, 'show'])->name('festivals.show');
     Route::get('/{festival}/show', [festivalsController::class, 'show'])->name('festivals.show');
     Route::get('/festivals/show/{id}', [festivalsController::class, 'show'])->name('festivals.show');
+    Route::get('/festivals/{id}', [festivalsController::class, 'show'])->name('festivals.show');
 });
 
+Route::post('/book/{busId}', [BusController::class, 'book'])
+    ->middleware('auth') //kan alleen als je bent ingelogd
+    ->name('book.bus');
 
 require __DIR__.'/auth.php';

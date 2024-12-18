@@ -17,5 +17,15 @@ class UserSeeder extends Seeder
             ]);
         });
         Bus::factory()->count(100)->create();
+
+        $users = User::all();
+        $buses = Bus::all();
+
+         // random buses aan elke user koppellen
+        foreach ($users as $user) {
+            $user->buses()->attach(
+                $buses->random(rand(1, 3))->pluck('id')->toArray()
+            );
+        }
     }
 }

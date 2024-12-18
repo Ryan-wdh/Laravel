@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\bus;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class BusController extends Controller
 {
@@ -62,4 +63,23 @@ class BusController extends Controller
     {
         //
     }
+
+    public function book(Request $request, $busId)
+    {
+        //zorgt ervoor dat er een user is ingelogd
+        $user = auth()->user();
+
+//
+//        $bus = Bus::find($busId);
+//
+//        if (!$bus) {
+//            return back()->with('error', 'Bus niet gevonden.');
+//        }
+
+        //bus koppellen met user
+        $user->buses()->attach($busId);
+
+        return redirect()->back()->with('success', 'Bus is geboekt!');
+    }
 }
+

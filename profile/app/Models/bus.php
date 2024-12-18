@@ -21,8 +21,8 @@ class bus extends Model
         return $this->belongsTo(festivals::class, 'festival_id');
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsToMany(User::class, 'bus_user');
     }
 }
