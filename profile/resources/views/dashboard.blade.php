@@ -13,6 +13,12 @@
                 </div>
                 <div class="p-6 text-gray-900">
                     <p>Here are your currently booked trips:</p>
+                    @foreach ($buses as $bus)
+                        <div class="w-auto bg-amber-50 p-4 text-center border border-dashed border-gray-900 rounded mb-4">
+                            <p>Bus Vertrektijd: {{ $bus->leaves_at }}</p>
+                            <p>Prijs: €{{ $bus->ticket_price }}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
