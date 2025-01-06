@@ -78,8 +78,8 @@ class BusController extends Controller
 
         //bus koppellen met user
         $user->buses()->attach($busId);
-
-        return redirect()->back()->with('success', 'Bus is geboekt!');
+        $user->increment('points', 5);
+        return redirect()->back()->with('success', 'Bus has been booked! You earned 5 points!');
     }
 }
 

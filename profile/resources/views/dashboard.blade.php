@@ -12,6 +12,7 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <h3>Total Points: {{ auth()->user()->points }}</h3>
                     <p>Here are your currently booked trips:</p>
                     @foreach ($buses as $bus)
                         <div class="w-auto bg-gray-500 p-4 text-center border border-dashed border-gray-900 rounded mb-4">

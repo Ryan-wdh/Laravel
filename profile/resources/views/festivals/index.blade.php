@@ -22,10 +22,11 @@
 <div class="mt-5 mx-auto w-3/4 grid grid-cols-3 gap-5">
     @foreach($festivals as $festival)
         <div class="w-auto bg-gray-600 text-gray-100 p-4 text-center border border-dashed border-gray-900 rounded">
-        <p>{{$festival->title}}</p>
+        <p class="font-bold mb-4">{{$festival->title}}</p>
         <p>{{$festival->content}}</p>
         <p>{{$festival->user_id}}</p>
-            <a href="/{{ $festival->id }}/show">Get more information</a>
+            <x-primary-button><a href="/{{ $festival->id }}/show">Get more information</a></x-primary-button>
+            <br>
             <a href="/{{ $festival->id }}/edit">Edit</a>
             <form method="POST" action="{{ route('festivals.destroy', $festival->id) }}">
                 @csrf
