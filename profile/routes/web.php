@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FestivalsController;
+use App\Http\Controllers\PointsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\UsersController;
@@ -53,4 +54,11 @@ Route::post('/book/{busId}', [BusController::class, 'book'])
     ->middleware('auth') //kan alleen als je bent ingelogd
     ->name('book.bus');
 
+route::resource('points', PointsController::class)
+
+    ->middleware(['auth', 'verified']);
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/points', [PointsController::class, 'index'])->name('points.index');
+});
 require __DIR__.'/auth.php';
