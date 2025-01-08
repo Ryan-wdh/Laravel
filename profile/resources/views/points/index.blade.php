@@ -14,6 +14,11 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3>Total Points: {{ auth()->user()->points }}</h3>
                     <p>Here are the products you can buy with BusPoints:</p>
+                    <div class="h-11.5 w-38 bg-gray-600 rounded-3xl border-2 border-gray-300 overflow-hidden">
+                        <div style="width: {{ auth()->user()->points*11.65 }}px; height: 50px; border-radius: 22px" class="bg-green-600">
+                            <p class="pt-3 pl-3">{{ auth()->user()->points}}/100</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
