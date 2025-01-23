@@ -27,12 +27,14 @@
         <p>{{$festival->user_id}}</p>
             <x-primary-button><a href="/{{ $festival->id }}/show">Get more information</a></x-primary-button>
             <br>
+            @if (Auth::user()->is_admin)
             <a href="/{{ $festival->id }}/edit">Edit</a>
             <form method="POST" action="{{ route('festivals.destroy', $festival->id) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
             </form>
+            @endif
         </div>
     @endforeach
 </x-app-layout>

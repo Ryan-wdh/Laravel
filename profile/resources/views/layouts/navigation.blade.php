@@ -21,6 +21,11 @@
                     <x-nav-link :href="route('points.index')" :active="request()->routeIs('points.index')">
                         {{ __('BusPoints') }}
                     </x-nav-link>
+                    @if (Auth::user()->is_admin)
+                        <x-nav-link :href="route('festivals.create')" :active="request()->routeIs('festivals.create')">
+                            {{ __('Create') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
