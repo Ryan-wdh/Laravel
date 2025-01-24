@@ -11,6 +11,11 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+                @if (session('success'))
+                    <div class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3>Total Points: {{ auth()->user()->points }}</h3>
                     <p>Here are the products you can buy with BusPoints:</p>
@@ -25,6 +30,16 @@
                             <p class="pt-3 pl-3 text-left">{{ auth()->user()->points}}/200</p>
                         </div>
                     </div>
+                    @if (Auth::user()->points >= 200)
+                        {{--user heeft genoeg punten en de knop kan gebruikt worden--}}
+                        <form method="POST" action="{{ route('buy.points') /*$festival->id kan je ook gebruiken*/}}">
+                            @csrf
+                            <button type="submit" class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">Buy now</button>
+                        </form>
+                    @else
+                        {{-- user heeft te weinig punten en de knop kan niet worden gebruikt--}}
+                        <button class="mt-4 mx-auto bg-red-700 text-red-100 p-3 rounded mb-4 cursor-not-allowed" disabled>Not Enough Points</button>
+                    @endif
                 </div>
             <div class="w-auto bg-gray-600 text-gray-100 p-4 text-center border border-dashed border-gray-900 rounded">
                 <p>Here are the products you can buy with BusPoints:</p>
@@ -33,6 +48,16 @@
                         <p class="pt-3 pl-3 text-left">{{ auth()->user()->points}}/50</p>
                     </div>
                 </div>
+                @if (Auth::user()->points >= 50)
+                    {{--user heeft genoeg punten en de knop kan gebruikt worden--}}
+                    <form method="POST" action="{{ route('buy.points') /*$festival->id kan je ook gebruiken*/}}">
+                        @csrf
+                        <button type="submit" class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">Buy now</button>
+                    </form>
+                @else
+                    {{-- user heeft te weinig punten en de knop kan niet worden gebruikt--}}
+                    <button class="mt-4 mx-auto bg-red-700 text-red-100 p-3 rounded mb-4 cursor-not-allowed" disabled>Not Enough Points</button>
+                @endif
             </div>
             <div class="w-auto bg-gray-600 text-gray-100 p-4 text-center border border-dashed border-gray-900 rounded">
                 <p>Here are the products you can buy with BusPoints:</p>
@@ -41,5 +66,15 @@
                         <p class="pt-3 pl-3 text-left">{{ auth()->user()->points}}/100</p>
                     </div>
                 </div>
+                @if (Auth::user()->points >= 100)
+                {{--user heeft genoeg punten en de knop kan gebruikt worden--}}
+                    <form method="POST" action="{{ route('buy.points') /*$festival->id kan je ook gebruiken*/}}">
+                        @csrf
+                        <button type="submit" class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">Buy now</button>
+                    </form>
+                @else
+                {{-- user heeft te weinig punten en de knop kan niet worden gebruikt--}}
+                    <button class="mt-4 mx-auto bg-red-700 text-red-100 p-3 rounded mb-4 cursor-not-allowed" disabled>Not Enough Points</button>
+                @endif
             </div>
 </x-app-layout>

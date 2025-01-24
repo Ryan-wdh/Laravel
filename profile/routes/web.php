@@ -19,10 +19,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-//Route::get('/festivals/show', function () {
-//    return view('festivals.show');
-//})->middleware(['auth', 'verified'])->name('festivals.show');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -58,10 +54,14 @@ Route::post('/book/{busId}', [BusController::class, 'book'])
     ->name('book.bus');
 
 route::resource('points', PointsController::class)
-
     ->middleware(['auth', 'verified']);
+
+Route::post('/buy', [PointsController::class, 'buy'])
+    ->middleware('auth')
+    ->name('buy.points');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/points', [PointsController::class, 'index'])->name('points.index');
 });
+
 require __DIR__.'/auth.php';

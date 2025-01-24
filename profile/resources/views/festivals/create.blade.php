@@ -1,5 +1,10 @@
 <x-app-layout>
     <h1 class="mt-5 mb-5 text-3xl text-center text-gray-100">Festivals</h1>
+    @if (session('success'))
+        <div class="w-1/4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
     <form class="max-w-sm mx-auto" method="post" action="{{route('festivals.store')}}">@csrf
         <div class="mb-5">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Festival Title</label>

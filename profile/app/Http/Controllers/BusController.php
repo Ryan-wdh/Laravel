@@ -69,16 +69,9 @@ class BusController extends Controller
         //zorgt ervoor dat er een user is ingelogd
         $user = auth()->user();
 
-//
-//        $bus = Bus::find($busId);
-//
-//        if (!$bus) {
-//            return back()->with('error', 'Bus niet gevonden.');
-//        }
-
         //bus koppellen met user
         $user->buses()->attach($busId);
-        $user->increment('points', 5);
+        $user->increment('points', 50);
         return redirect()->back()->with('success', 'Bus has been booked! You earned 5 points!');
     }
 }

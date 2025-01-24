@@ -22,15 +22,6 @@
                             {{$bus->festivals_id}}
                         </div>
                     @endforeach
-                    <form class="max-w-sm mx-auto" method="post" action="{{route('users.store')}}">@csrf
-                    <div class="mt-4">
-                        <label class="flex items-center">
-                            <input type="checkbox" name="is_admin" value="1" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <span class="ml-2 text-sm text-gray-600">{{ __('I am a festival owner (Admin)') }}</span>
-                        </label>
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 mt-6 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Festival</button>
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>

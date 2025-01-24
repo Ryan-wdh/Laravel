@@ -52,7 +52,7 @@ class FestivalsController extends Controller
 
         festivals::create($validated);
 
-        return redirect()->route('festivals.index');
+        return redirect()->back()->with('success', 'Festival added!');
     }
     /**
      * Display the specified resource.

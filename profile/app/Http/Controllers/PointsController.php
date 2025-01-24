@@ -37,6 +37,7 @@ class PointsController extends Controller
     {
 
     }
+
     /**
      * Display the specified resource.
      */
@@ -67,5 +68,16 @@ class PointsController extends Controller
     public function destroy($id)
     {
 
+    }
+
+    public function buy(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($user->points >= 50) {
+            $user->points -= 50;
+            $user->save();
+        }
+        return redirect()->back()->with('success', 'You used 50 points');
     }
 }
