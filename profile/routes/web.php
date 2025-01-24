@@ -39,7 +39,6 @@ route::resource('festivals', festivalsController::class)
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/festivals', [festivalsController::class, 'index'])->name('festivals.index');
-    Route::get('/festivals/create', [festivalsController::class, 'create'])->name('festivals.create');
     Route::post('/festivals/store', [festivalsController::class, 'store'])->name('festivals.store');
     Route::get('/{festival}/edit', [festivalsController::class, 'edit'])->name('festivals.edit');
     Route::put('/{festival}/update', [festivalsController::class, 'update'])->name('festivals.update');
@@ -48,6 +47,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/{festival}/show', [festivalsController::class, 'show'])->name('festivals.show');
     Route::get('/festivals/show/{id}', [festivalsController::class, 'show'])->name('festivals.show');
     Route::get('/festivals/{id}', [festivalsController::class, 'show'])->name('festivals.show');
+
+    Route::get('/festivals/create', function () {
+        return view('festivals.create');
+    })->middleware('can:is_admin')->name('festivals.create'); //alleen admins hebben toegang aan festivals create
 });
 
 Route::post('/book/{busId}', [BusController::class, 'book'])
