@@ -19,6 +19,12 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+// Named route for dashboard
+Route::middleware(['auth'])->get('/dashboard', function () {
+    $user = Auth::user();
+    return view('dashboard', compact('user'));
+})->name('dashboard'); //route een naam geven
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -48,6 +54,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('festivals.create');
     })->middleware('can:is_admin')->name('festivals.create'); //alleen admins hebben toegang aan festivals create
 });
+
+Route::delete('/buses/{bus}', [BusController::class, 'remove'])->name('buses.destroy');
 
 Route::post('/book/{busId}', [BusController::class, 'book'])
     ->middleware('auth') //kan alleen als je bent ingelogd

@@ -73,11 +73,13 @@ class PointsController extends Controller
     public function buy(Request $request)
     {
         $user = Auth::user();
+        $pointsRequired = $request->input('points');
 
-        if ($user->points >= 50) {
-            $user->points -= 50;
+        //checkt dat de user genoeg punten heeft uit de input
+        if ($user->points >= $pointsRequired) {
+            $user->points -= $pointsRequired;
             $user->save();
         }
-        return redirect()->back()->with('success', 'You used 50 points');
+        return redirect()->back()->with('success', "You used $pointsRequired points.");
     }
 }

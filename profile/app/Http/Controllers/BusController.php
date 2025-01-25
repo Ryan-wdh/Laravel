@@ -64,15 +64,24 @@ class BusController extends Controller
         //
     }
 
-    public function book(Request $request, $busId)
+    public function book(Request $request, $bus_id)
     {
         //zorgt ervoor dat er een user is ingelogd
         $user = auth()->user();
 
         //bus koppellen met user
-        $user->buses()->attach($busId);
-        $user->increment('points', 50);
+        $user->buses()->attach($bus_id);
+        $user->increment('points', 5);
         return redirect()->back()->with('success', 'Bus has been booked! You earned 5 points!');
+    }
+    public function remove($bus_id)
+    {
+        $user = auth()->user();
+
+        //koppeling verwijderen
+        $user->buses()->detach($bus_id);
+        $user->increment('points', -5);
+        return redirect()->route('dashboard');
     }
 }
 

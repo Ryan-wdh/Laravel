@@ -14,14 +14,20 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3>Total Points: {{ auth()->user()->points }}</h3>
                     <p>Here are your currently booked trips:</p>
-                    @foreach ($buses as $bus)
+                    @foreach ($user->buses as $bus)
                         <div class="w-auto bg-gray-500 p-4 text-center border border-dashed border-gray-900 rounded mb-4">
                             <p>Festival titel: {{ $bus->title }}</p>
                             <p>Bus Vertrektijd: {{ $bus->leaves_at }}</p>
                             <p>Prijs: €{{ $bus->ticket_price }}</p>
                             {{$bus->festivals_id}}
+                            <form action="{{ route('buses.destroy', $bus->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="mt-4 mx-auto bg-red-700 text-red-100 p-3 rounded mb-4">Cancel booking</button>
+                            </form>
                         </div>
                     @endforeach
+                </div>
                 </div>
             </div>
         </div>

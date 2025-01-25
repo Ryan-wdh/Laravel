@@ -34,6 +34,7 @@
                         {{--user heeft genoeg punten en de knop kan gebruikt worden--}}
                         <form method="POST" action="{{ route('buy.points') /*$festival->id kan je ook gebruiken*/}}">
                             @csrf
+                            <input type="hidden" name="points" value="200">
                             <button type="submit" class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">Buy now</button>
                         </form>
                     @else
@@ -52,6 +53,7 @@
                     {{--user heeft genoeg punten en de knop kan gebruikt worden--}}
                     <form method="POST" action="{{ route('buy.points') /*$festival->id kan je ook gebruiken*/}}">
                         @csrf
+                        <input type="hidden" name="points" value="50">
                         <button type="submit" class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">Buy now</button>
                     </form>
                 @else
@@ -70,6 +72,7 @@
                 {{--user heeft genoeg punten en de knop kan gebruikt worden--}}
                     <form method="POST" action="{{ route('buy.points') /*$festival->id kan je ook gebruiken*/}}">
                         @csrf
+                        <input type="hidden" name="points" value="100">
                         <button type="submit" class="mt-4 mx-auto bg-green-200 text-green-800 p-3 rounded mb-4">Buy now</button>
                     </form>
                 @else
