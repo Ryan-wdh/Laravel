@@ -1,16 +1,5 @@
 <x-app-layout>
     <h1 class="mt-5 mb-5 text-3xl text-center text-gray-100">Festivals</h1>
-{{--    <div class="mt-5 mx-auto w-1/2 bg-gray-600 text-gray-100 p-4 text-center border border-gray-900 rounded">--}}
-{{--        <form method="post" action="{{route('festivals.store')}}" >@csrf--}}
-{{--            Title:<br>--}}
-{{--            <input type="text" name="title">--}}
-{{--            <br>--}}
-{{--            Content:<br>--}}
-{{--            <textarea name="content"></textarea><br>--}}
-{{--            <button class="bg-white p-1 text-center border border-gray-900 rounded" type="submit">Add</button>--}}
-{{--            <x-primary-button>Search</x-primary-button>--}}
-{{--        </form>--}}
-{{--    </div>--}}
     <form class="max-w-md mx-auto md:w-full w-11/12" method="GET" action="{{route('festivals.index')}}">
         <div class="relative">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -21,19 +10,21 @@
     </form>
     <div class="mt-5 mx-auto grid w-3/4 grid-cols-1 gap-5 md:grid-cols-3">
     @foreach($festivals as $festival)
-        <div class="w-auto bg-gray-600 text-gray-100 p-4 text-center border border-dashed border-gray-900 rounded">
+        <div class="w-auto bg-gray-600 text-gray-100 p-4 text-center border border-gray-900 rounded">
+        <img class="brightness-90 rounded shadow mb-3 relative w-full h-60"  src="\images\{{$festival->title}}.jpg">
         <p class="font-bold mb-4">{{$festival->title}}</p>
-        <p>{{$festival->content}}</p>
-        <p>{{$festival->user_id}}</p>
+        <p class="mb-4">{{$festival->content}}</p>
             <x-primary-button><a href="/{{ $festival->id }}/show">Get more information</a></x-primary-button>
             <br>
             @if (Auth::user()->is_admin)
-            <a href="/{{ $festival->id }}/edit">Edit</a>
-            <form method="POST" action="{{ route('festivals.destroy', $festival->id) }}">
-                @csrf
-                @method('DELETE')
-                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
-            </form>
+                <div class="flex space-x-2 mt-4 justify-center">
+                    <a class="bg-blue-200 text-blue-800 p-1 w-16 rounded" href="/{{ $festival->id }}/edit">Edit</a>
+                    <form method="POST" action="{{ route('festivals.destroy', $festival->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bg-red-700 text-red-100 p-1 w-16 rounded" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </div>
             @endif
         </div>
     @endforeach

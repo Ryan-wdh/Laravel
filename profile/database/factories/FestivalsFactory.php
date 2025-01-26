@@ -28,7 +28,6 @@ class FestivalsFactory extends Factory
             ['Lowlands', '08-16', 3],
             ['Defqon.1', '06-28', 3],
             ['Mysteryland', '08-23', 3],
-            ['Down The Rabbit Hole', '07-05', 3],
             ['Awakenings', '06-29', 2],
         ])->filter(function($fest) use (&$usedFestivals) {
             if (count($usedFestivals) >= 8) $usedFestivals = [];

@@ -1,23 +1,24 @@
 <x-app-layout>
-    <div class="container h-100 w-1/2 mt-5 bg-gray-500">
-        <div class="row h-100 justify-content-center align-items-center">
-            <div class="col-20 col-md-8 col-lg-6">
-                <h3>Update Post</h3>
-                <form action="{{ route('festivals.update', $festival->id) }}" method="post">
-                    @csrf
-                    @method('PUT')
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title"
-                               value="{{ $festival->title }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="content">Content</label>
-                        <textarea class="form-control" id="content" name="content" rows="7" cols="50" required>{{ $festival->body }}</textarea>
-                    </div>
-                    <button type="submit" class="btn mt-3 btn-primary">Update Festival</button>
-                </form>
-            </div>
+    <div class="container mx-auto mt-10 p-8 bg-gray-800 shadow-lg rounded-lg w-full max-w-xl">
+        <div class="text-center mb-6">
+            <h3 class="text-2xl font-semibold text-gray-100">Update Festival</h3>
         </div>
+        <form action="{{ route('festivals.update', $festival->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-100">Festival Title</label>
+                <input type="text" name="title" value="{{ $festival->title }}" class="w-full p-2 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter festival name" required />
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-100">Festival Information</label>
+                <textarea name="content" rows="4" class="w-full p-2 rounded-lg bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type festival information here..." required>{{ $festival->content }}</textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="w-full sm:w-auto px-6 py-2 bg-blue-600 text-gray-100 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Update Festival</button>
+            </div>
+        </form>
     </div>
 </x-app-layout>
