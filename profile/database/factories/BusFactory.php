@@ -22,8 +22,11 @@ class BusFactory extends Factory
             'leaves_at' => $leavesAt,
             'arrives_at' => $arrivesAt,
             'ticket_price' => $ticket_price,
+            'departure_from' => fake()->randomElement(['Amsterdam', 'Rotterdam', 'Utrecht', 'The Hague', 'Eindhoven']),
+            'destination' => fake()->randomElement(['Lowlands', 'Pinkpop', 'Rock Werchter', 'Tomorrowland', 'Defqon.1']),
             'festivals_id' => festivals::inRandomOrder()->first()->id ?? null,
             'user_id' => user::inRandomOrder()->first()->id ?? null,
         ];
     }
 }
+

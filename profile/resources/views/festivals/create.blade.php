@@ -5,7 +5,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form class="max-w-sm mx-auto" method="post" action="{{route('festivals.store')}}">@csrf
+    <form class="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-lg text-center mx-auto" method="post" action="{{route('festivals.store')}}">@csrf
         <div class="mb-5">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Festival Title</label>
             <input type="text" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Festival name" required />

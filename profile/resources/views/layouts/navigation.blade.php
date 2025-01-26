@@ -87,6 +87,11 @@
             <x-responsive-nav-link :href="route('points.index')" :active="request()->routeIs('points.index')">
                 {{ __('BusPoints') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->is_admin)
+                <x-responsive-nav-link :href="route('festivals.create')" :active="request()->routeIs('festivals.create')">
+                    {{ __('Create') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

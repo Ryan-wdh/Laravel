@@ -5,7 +5,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <div class="mt-5 mx-auto w-3/4 grid grid-cols-3 gap-5">
+    <div class="mt-5 mx-auto grid w-3/4 grid-cols-1 gap-5 md:grid-cols-3">
             @foreach ($buses as $bus)
                     <div class="w-auto bg-gray-600 text-gray-100 p-4 text-center border border-dashed border-gray-900 rounded">
                         <h2 class="font-bold">Festival Naam: {{$festival?->title ?? 'Geen festival gekoppeld' }}</h2>

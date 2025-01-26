@@ -4,7 +4,6 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -80,4 +79,6 @@
                     <button class="mt-4 mx-auto bg-red-700 text-red-100 p-3 rounded mb-4 cursor-not-allowed" disabled>Not Enough Points</button>
                 @endif
             </div>
+        </div>
+    </div>
 </x-app-layout>

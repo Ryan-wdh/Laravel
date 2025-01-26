@@ -16,10 +16,11 @@
                     <p>Here are your currently booked trips:</p>
                     @foreach ($user->buses as $bus)
                         <div class="w-auto bg-gray-500 p-4 text-center border border-dashed border-gray-900 rounded mb-4">
-                            <p>Festival titel: {{ $bus->title }}</p>
+                            <p>Festival titel: {{ $bus->festivals_id }}</p>
                             <p>Bus Vertrektijd: {{ $bus->leaves_at }}</p>
+                            <p>From: {{ $bus->departure_from }}</p>
+                            <p>To: {{ $bus->destination }}</p>
                             <p>Prijs: €{{ $bus->ticket_price }}</p>
-                            {{$bus->festivals_id}}
                             <form action="{{ route('buses.destroy', $bus->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
