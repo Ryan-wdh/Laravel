@@ -30,7 +30,7 @@ class FestivalsFactory extends Factory
             ['Mysteryland', '08-23', 3],
             ['Awakenings', '06-29', 2],
         ])->filter(function($fest) use (&$usedFestivals) {
-            if (count($usedFestivals) >= 8) $usedFestivals = [];
+            if (count($usedFestivals) >= 7) $usedFestivals = [];
             return !in_array($fest[0], $usedFestivals);
         });
 
