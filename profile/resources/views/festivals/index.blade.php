@@ -14,7 +14,7 @@
         <img class="brightness-90 rounded shadow mb-3 relative w-full h-60"  src="\images\{{$festival->title}}.jpg">
         <p class="font-bold mb-4">{{$festival->title}}</p>
         <p class="mb-4">{{$festival->content}}</p>
-            <x-primary-button><a href="/{{ $festival->id }}/show">Get more information</a></x-primary-button>
+            <x-primary-button><a href="/{{ $festival->id }}/show">Show available buses</a></x-primary-button>
             <br>
             @if (Auth::user()->is_admin)
                 <div class="flex space-x-2 mt-4 justify-center">

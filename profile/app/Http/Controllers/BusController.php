@@ -71,8 +71,8 @@ class BusController extends Controller
 
         //bus koppellen met user
         $user->buses()->attach($bus_id);
-        $user->increment('points', 5);
-        return redirect()->back()->with('success', 'Bus has been booked! You earned 5 points!');
+        $user->increment('points', 25);
+        return redirect()->back()->with('success', 'Bus has been booked! You earned 25 points!');
     }
     public function remove($bus_id)
     {
@@ -80,7 +80,7 @@ class BusController extends Controller
 
         //koppeling verwijderen
         $user->buses()->detach($bus_id);
-        $user->increment('points', -5);
+        $user->increment('points', -25);
         return redirect()->route('dashboard');
     }
 }

@@ -17,7 +17,7 @@ class BusFactory extends Factory
         $leavesAt = Carbon::now()->addDays(rand(-60, 60))
         ->addHours(rand(0, 23));
         $arrivesAt = $leavesAt->copy()->addHours(rand(1, 12));
-        $ticket_price = rand(1, 15);
+        $ticket_price = rand(30, 60);
         return [
             'leaves_at' => $leavesAt,
             'arrives_at' => $arrivesAt,

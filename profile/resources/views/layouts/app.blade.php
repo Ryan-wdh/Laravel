@@ -33,4 +33,14 @@
             </main>
         </div>
     </body>
+    <footer class="bg-gray-800 text-gray-200 py-4">
+        <div class="container mx-auto text-center">
+            <div class="mb-2">
+                <p class="text-lg">FTS-system</p>
+            <div>
+                <p class="text-xs">&copy; Ryan Dürr 2025</p>
+            </div>
+        </div>
+    </footer>
+
 </html>

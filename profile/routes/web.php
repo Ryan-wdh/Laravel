@@ -31,14 +31,16 @@ Route::middleware('auth')->group(function () {
 });
 
 route::resource('users', UsersController::class)
-
     ->middleware(['auth', 'verified']);
+
+Route::get('/users', function () {
+    return view('users.index');
+})->middleware('can:is_admin')->name('users.index');
 
 Route::get('/users', [UsersController::class, 'index'])
     ->name('users.index');
 
 route::resource('festivals', festivalsController::class)
-
     ->middleware(['auth', 'verified']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
