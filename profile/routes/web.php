@@ -30,15 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-route::resource('users', UsersController::class)
-    ->middleware(['auth', 'verified']);
-
-Route::get('/users', function () {
-    return view('users.index');
-})->middleware('can:is_admin')->name('users.index');
-
-Route::get('/users', [UsersController::class, 'index'])
-    ->name('users.index');
+Route::resource('users', UsersController::class)
+    ->middleware(['auth', 'verified', 'can:is_admin']);
 
 route::resource('festivals', festivalsController::class)
     ->middleware(['auth', 'verified']);
