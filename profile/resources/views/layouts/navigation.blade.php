@@ -23,8 +23,13 @@
                     </x-nav-link>
                     @if (Auth::user()->is_admin)
                         <x-nav-link :href="route('festivals.create')" :active="request()->routeIs('festivals.create')">
-                            {{ __('Create') }}
+                            {{ __('Planner') }}
                         </x-nav-link>
+                    @endif
+                    @if (Auth::user()->is_admin)
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                            {{ __('User Info') }}
+                            </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -89,7 +94,12 @@
             </x-responsive-nav-link>
             @if (Auth::user()->is_admin)
                 <x-responsive-nav-link :href="route('festivals.create')" :active="request()->routeIs('festivals.create')">
-                    {{ __('Create') }}
+                    {{ __('Planner') }}
+                </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->is_admin)
+                <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    {{ __('User Info') }}
                 </x-responsive-nav-link>
             @endif
         </div>
